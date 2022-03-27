@@ -21,9 +21,10 @@ public class Agenda {
                 System.out.println("\nContato excluído com sucesso.\n");
                 temContato = true;
             }
-            if (!temContato) {
-                System.out.println("O contato não existe na lista");
-            }
+
+        }
+        if (!temContato) {
+            System.out.println("O contato não existe na lista");
         }
     }
 
