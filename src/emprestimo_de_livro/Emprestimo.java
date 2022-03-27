@@ -6,7 +6,9 @@ import java.util.Scanner;
 public class Emprestimo {
 
     private Pessoa pessoa = new Pessoa();
-    private  Livro[]  livros = new Livro[10];
+    private  Emprestimo  emprestimo;
+    private Livro livro = new Livro();
+    private  Livro  livros[];
 
     public Pessoa getPessoa() {
         return pessoa;
@@ -14,6 +16,23 @@ public class Emprestimo {
 
     public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
+    }
+
+    public Emprestimo getEmprestimo() {
+        return emprestimo;
+    }
+
+    public void setEmprestimo(Emprestimo emprestimo) {
+        this.emprestimo = emprestimo;
+    }
+
+
+    public Livro getLivro() {
+        return livro;
+    }
+
+    public void setLivro(Livro livro) {
+        this.livro = livro;
     }
 
     public Livro[] getLivros() {
@@ -24,41 +43,39 @@ public class Emprestimo {
         this.livros = livros;
     }
 
+    public void  fazerEmprestimo() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("qual seu nome ?");
+        String n = sc.nextLine();
+        pessoa.setNome(n);
+        System.out.println("qual sua idade");
+        int i = sc.nextInt();
+        pessoa.setIdade(i);
+
+        System.out.println("qual sua matricula");
+        int matri = sc.nextInt();
+        pessoa.setMatricula(matri);
+
+
+        System.out.println("seu  Dados " + pessoa.getNome() +pessoa.getIdade() + pessoa.getMatricula());
 
 
 
-    public void listarLivros (){
-        for(int j = 0; j <  livros.length; j++) {
-            System.out.println("Nome do livro " + livros[j].getNome());
-            System.out.println("autor do  livro " + livros[j].getAutor());
-            System.out.println("quantidade do livro " + livros[j].getQuantidade());
-        }
-        System.out.println("nao Temos Livro para Emprestimo");
-    }
+
+        System.out.println("qual o nome do livro que  deseja  fazer emprestimo  ?");
 
 
-    public void  escolheLivro(String livro ){
-        for(int j = 0; j <  livros.length; j++) {
-            if((livros[j] != null) && (livros[j].getQuantidade() > 0 ) && (livros[j].getNome().equals(livro) )){
-                livros[j].setQuantidade(-1);
-                System.out.println("voce podera ficar com esse livro  durante uma semana \n caso nao entregue em uma seman  tera que pagar uma taxa por dia que 2.50 por dia de atraso ");
+        String aut = sc.nextLine();
 
-            }if(livros[j].getQuantidade() <= 0){
-                System.out.println("Nao  temos esse livro para emprestimo");
-
-            }
-        }
-    }
+        livro.setNome("romeu e julieta");
+        livro.getAutor();
 
 
-    public void criarlivroParaEmprestimo(Livro livr){
-        livros[livros.length - 1 ] = livr;
-        Livro[] newLivros = new Livro[livros.length + 1 ];
-        for (int j = 1; j< livros.length;){
 
-        }
 
     }
+
+
 
 
 
