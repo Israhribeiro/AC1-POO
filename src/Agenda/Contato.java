@@ -1,19 +1,19 @@
 package Agenda;
 
 public class Contato {
-    private long telefone;
+    private String telefone;
     private String nome;
 
-    public Contato(String nome,long telefone) {
+    public Contato(String nome,String telefone) {
         setNome(nome);
         setTelefone(telefone);
     }
 
-    public long getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(long telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 

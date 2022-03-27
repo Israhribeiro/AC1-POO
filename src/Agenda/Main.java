@@ -30,7 +30,7 @@ public class Main {
                 System.out.println("Digite o nome do contato: ");
                 nome = sc.nextLine();
                 System.out.println("Digite o telefone do contato: ");
-                long telefone = sc.nextLong();
+                String telefone = sc.nextLine();
                 agenda.addContato(new Contato(nome,telefone));
                 intro(agenda);
                 break;
