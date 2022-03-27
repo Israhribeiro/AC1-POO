@@ -31,6 +31,23 @@ public class Pessoa {
         this.matricula = matricula;
     }
 
+    public  void criarCadastro  (){
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("qual seu nome ?");
+        String n = sc.nextLine();
+        setNome(n);
+        System.out.println("qual sua idade");
+        int i = sc.nextInt();
+        setIdade(i);
+
+        System.out.println("qual sua matricula");
+        int matri = sc.nextInt();
+        setMatricula(matri);
+
+
+        System.out.println("seu  Dados " +getNome() +getIdade() +getMatricula());
+    }
 
 
 }
