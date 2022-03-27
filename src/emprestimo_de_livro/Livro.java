@@ -9,7 +9,11 @@ public class Livro {
     private int quantidade;
 
 
-
+    public Livro(String nome, String autor, int quantidade) {
+        this.nome = nome;
+        this.autor = autor;
+        this.quantidade = quantidade;
+    }
 
     public String getNome() {
         return nome;

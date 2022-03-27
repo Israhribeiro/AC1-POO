@@ -1,14 +1,132 @@
 package emprestimo_de_livro;
 
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Emprestimo {
 
     private Pessoa pessoa = new Pessoa();
-    private  Emprestimo  emprestimo;
-    private Livro livro = new Livro();
-    private  Livro  livros[];
+    private List<Livro> livros =  new List<Livro>() {
+        @Override
+        public int size() {
+            return 0;
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return false;
+        }
+
+        @Override
+        public boolean contains(Object o) {
+            return false;
+        }
+
+        @Override
+        public Iterator<Livro> iterator() {
+            return null;
+        }
+
+        @Override
+        public Object[] toArray() {
+            return new Object[0];
+        }
+
+        @Override
+        public <T> T[] toArray(T[] a) {
+            return null;
+        }
+
+        @Override
+        public boolean add(Livro livro) {
+            return false;
+        }
+
+        @Override
+        public boolean remove(Object o) {
+            return false;
+        }
+
+        @Override
+        public boolean containsAll(Collection<?> c) {
+            return false;
+        }
+
+        @Override
+        public boolean addAll(Collection<? extends Livro> c) {
+            return false;
+        }
+
+        @Override
+        public boolean addAll(int index, Collection<? extends Livro> c) {
+            return false;
+        }
+
+        @Override
+        public boolean removeAll(Collection<?> c) {
+            return false;
+        }
+
+        @Override
+        public boolean retainAll(Collection<?> c) {
+            return false;
+        }
+
+        @Override
+        public void clear() {
+
+        }
+
+        @Override
+        public Livro get(int index) {
+            return null;
+        }
+
+        @Override
+        public Livro set(int index, Livro element) {
+            return null;
+        }
+
+        @Override
+        public void add(int index, Livro element) {
+
+        }
+
+        @Override
+        public Livro remove(int index) {
+            return null;
+        }
+
+        @Override
+        public int indexOf(Object o) {
+            return 0;
+        }
+
+        @Override
+        public int lastIndexOf(Object o) {
+            return 0;
+        }
+
+        @Override
+        public ListIterator<Livro> listIterator() {
+            return null;
+        }
+
+        @Override
+        public ListIterator<Livro> listIterator(int index) {
+            return null;
+        }
+
+        @Override
+        public List<Livro> subList(int fromIndex, int toIndex) {
+            return null;
+        }
+    };
+
+
+    public Emprestimo() {
+        this.livros.add(new  Livro ("teste", "teste", 1));
+    }
 
     public Pessoa getPessoa() {
         return pessoa;
@@ -18,75 +136,19 @@ public class Emprestimo {
         this.pessoa = pessoa;
     }
 
-    public Emprestimo getEmprestimo() {
-        return emprestimo;
-    }
 
-    public void setEmprestimo(Emprestimo emprestimo) {
-        this.emprestimo = emprestimo;
-    }
-
-
-    public Livro getLivro() {
-        return livro;
-    }
-
-    public void setLivro(Livro livro) {
-        this.livro = livro;
-    }
-
-    public Livro[] getLivros() {
-        return livros;
-    }
-
-    public void setLivros(Livro[] livros) {
-        this.livros = livros;
-    }
-
-    public void  fazerEmprestimo() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("qual seu nome ?");
-        String n = sc.nextLine();
-        pessoa.setNome(n);
-        System.out.println("qual sua idade");
-        int i = sc.nextInt();
-        pessoa.setIdade(i);
-
-        System.out.println("qual sua matricula");
-        int matri = sc.nextInt();
-        pessoa.setMatricula(matri);
-
-
-        System.out.println("seu  Dados " + pessoa.getNome() +pessoa.getIdade() + pessoa.getMatricula());
-
-
-
-
-        System.out.println("qual o nome do livro que  deseja  fazer emprestimo  ?");
-
-
-        String aut = sc.nextLine();
-
-        livro.setNome("romeu e julieta");
-        livro.getAutor();
-
-
-    }
-
-
-    public void addListrosparaEmprestimos( Livro livro){
-
-
-
+    public void addLisvrosparaEmprestimos(Livro livro){
+        livros.add(livro);
+        System.out.println("Livro aicionado com suceso" +livros.size());
     }
 
 
 
     public void escooherLivroParaEmprestimo(String nome){
-        for (int j = 0; j < livros.length; j++){
-            if((livros[j] != null)  && (livros[j].getQuantidade() > 0 ) && ( livros[j].getNome().equals(nome))){
-                livros[j].setQuantidade(livros[j].getQuantidade() - 1);
-                System.out.println( "Nome do livro" + livros[j].getNome());
+        for (int j = 0; j < livros.size(); j++){
+            if((livros.get(j) != null)  && (livros.get(j).getQuantidade() > 0 ) && ( livros.get(j).getNome().equals(nome))){
+                livros.get(j).setQuantidade(livros.get(j).getQuantidade() - 1);
+                System.out.println( "Nome do livro" + livros.get(j).getNome());
                 return;
             }
         }
@@ -96,35 +158,41 @@ public class Emprestimo {
 
 
     public void listLivros(){
-        for(int j = 0; j< livros.length; j++){
-            System.out.println("livro" + livros[j].getNome());
-            System.out.println("nome do  autor do livro " + livros[j].getAutor());
-            System.out.println("quantidade de livros  disponiveios para emprestimos"+  livros[j].getQuantidade());
+        if(livros.size() <  1){
+            System.out.println("Nao tem livros");
+            return;
+        }
+        for(int j = 0; j < livros.size(); j++){
+            System.out.println("livro" + livros.get(j).getNome());
+            System.out.println("nome do  autor do livro " + livros.get(j).getAutor());
+            System.out.println("quantidade de livros  disponiveios para emprestimos"+  livros.get(j).getQuantidade());
             return ;
         }
-
-        System.out.println("nao tem livros  para emprestimos ");
+        System.out.println("nao tem livros  para emprestimos "+ livros.size());
 
     }
 
 
     public void excluirLivroDoAcervo(String nome){
-        Livro[] newLivro = new Livro[livros.length + 1];
-        for(int j =0 ; j< livros.length; j++){
-            if((livros[j] != null)  && (livros[j].getNome().equals((nome)))) {
-                livros[j] = null;
-                System.out.println("Livro escluido com suceso");
-                return ;
-            }
+        if(livros == null ){
+            System.out.println("Nao tem livros");
+            return;
         }
+        for (int j = 0; j < livros.size(); j++){
+            if((livros.get(j) != null)   && ( livros.get(j).getNome().equals(nome))){
+                System.out.println("Livro  excluido com sucesso");
+            }
+
+        }
+
         System.out.println("Livro nao existe em  acervo");
+        }
+
     }
 
 
 
 
-
-}
 
 
 
