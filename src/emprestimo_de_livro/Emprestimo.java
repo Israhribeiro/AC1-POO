@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Emprestimo {
 
     private Pessoa pessoa = new Pessoa();
-    private  Emprestimo  emprestimo;
     private Livro livro = new Livro();
     private  Livro  livros[];
 
@@ -17,15 +16,6 @@ public class Emprestimo {
     public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
     }
-
-    public Emprestimo getEmprestimo() {
-        return emprestimo;
-    }
-
-    public void setEmprestimo(Emprestimo emprestimo) {
-        this.emprestimo = emprestimo;
-    }
-
 
     public Livro getLivro() {
         return livro;
