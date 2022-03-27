@@ -71,8 +71,53 @@ public class Emprestimo {
         livro.getAutor();
 
 
+    }
 
 
+    public void addListrosparaEmprestimos( Livro livro){
+
+
+
+    }
+
+
+
+    public void escooherLivroParaEmprestimo(String nome){
+        for (int j = 0; j < livros.length; j++){
+            if((livros[j] != null)  && (livros[j].getQuantidade() > 0 ) && ( livros[j].getNome().equals(nome))){
+                livros[j].setQuantidade(livros[j].getQuantidade() - 1);
+                System.out.println( "Nome do livro" + livros[j].getNome());
+                return;
+            }
+        }
+        System.out.println("livro Nao existe em nosso  acervo");
+    }
+
+
+
+    public void listLivros(){
+        for(int j = 0; j< livros.length; j++){
+            System.out.println("livro" + livros[j].getNome());
+            System.out.println("nome do  autor do livro " + livros[j].getAutor());
+            System.out.println("quantidade de livros  disponiveios para emprestimos"+  livros[j].getQuantidade());
+            return ;
+        }
+
+        System.out.println("nao tem livros  para emprestimos ");
+
+    }
+
+
+    public void excluirLivroDoAcervo(String nome){
+        Livro[] newLivro = new Livro[livros.length + 1];
+        for(int j =0 ; j< livros.length; j++){
+            if((livros[j] != null)  && (livros[j].getNome().equals((nome)))) {
+                livros[j] = null;
+                System.out.println("Livro escluido com suceso");
+                return ;
+            }
+        }
+        System.out.println("Livro nao existe em  acervo");
     }
 
 

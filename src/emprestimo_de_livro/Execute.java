@@ -9,6 +9,7 @@ public class Execute {
         Emprestimo emprestimo = new Emprestimo();
         Pessoa pessoa = new Pessoa();
         Scanner sc = new Scanner(System.in);
+        Livro livro = new Livro();
 
         boolean decisao = true;
 
@@ -16,22 +17,27 @@ public class Execute {
             System.out.println("Seja  vendo no  gerenciador  de  emprestimos de livros!! \n pPara Pode utilizar  realize o cadatros");
             pessoa.criarCadastro();
 
-            System.out.println("O que deseja  realizar \n (1) Para  Cadastrar livros \n (2) listrar Livros \n (3)  deletar para emprestimo");
+            System.out.println("O que deseja  realizar \n (1) Para  Cadastrar livros \n (2) listrar Livros \n (3)  deletar livros para emprestimo \n 4 para sair ");
             int  n = sc.nextInt();
 
             if(n == 1){
-                emprestimo.
+                String nome = sc.next();
+                String autor  = sc.next();
+                int quabnt = sc.nextInt();
+                livro.setNome(nome);
+                livro.setAutor(autor);
+                livro.setQuantidade(quabnt);
+                emprestimo.addListrosparaEmprestimos(livro);
             }
             if(n == 2 ){
-                emprestimo.listarLivros();
+                emprestimo.listLivros();
             }
             if(n == 3 ){
-
+                String nome = sc.next();
+                emprestimo.excluirLivroDoAcervo(nome);
             }
+
             if(n == 4 ){
-
-            }
-            if(n == 5 ){
                 decisao = false;
                 break;
             }
