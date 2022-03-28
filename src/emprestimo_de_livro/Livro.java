@@ -23,7 +23,6 @@ public class Livro {
         this.nome = nome;
     }
 
-
     public String getAutor() {
         return autor;
     }

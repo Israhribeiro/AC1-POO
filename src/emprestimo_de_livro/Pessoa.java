@@ -46,7 +46,7 @@ public class Pessoa {
         setMatricula(matri);
 
 
-        System.out.println("seu  Dados " +getNome() +getIdade() +getMatricula());
+        System.out.println("seu  Dados " +getNome()+ " " +getIdade() +" "+getMatricula());
     }
 
 
